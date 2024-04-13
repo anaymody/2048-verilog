@@ -1,10 +1,11 @@
 
 //module
-module ee354_2048(Clk, Reset, q_I, q_Wait, q_Up, q_Down, q_Right, q_Left, q_Win, q_Lose);
+module ee354_2048(Clk, Reset, q_I, q_Wait, q_Up, q_Down, q_Right, q_Left, q_Win, q_Lose, up, down, left, right);
 
 
 //inputs
 input Clk, Reset;
+input up, down, left, right
 
 //outputs
 output q_I, q_Wait, q_Up, q_Down, q_Right, q_Left, q_Win, q_Lose;
@@ -31,19 +32,29 @@ begin
             I:
             begin
             //state transitions
-
+            state <= WAIT;
             //data transitions
                 for (i = 0; i < 4; i = i+1) begin
                     for (j = 0; j < 4; j = j+1) begin
                         board[i][j] <= 0;
                     end
                 end
+
+                board[0][0] <= 1;
+                board[1][0] <= 1;
             end
 
             WAIT:
             begin
             //state transitions
-
+            if (up)
+                state <= UP;
+            else if (down)
+                state <= DOWN;
+            if (left)
+                state <= LEFT;
+            if (right)
+                state <= RIGHT;
             //data transitions
 
             end
