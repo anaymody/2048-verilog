@@ -36,11 +36,11 @@ begin
             //data transitions
                 for (i = 0; i < 4; i = i+1) begin
                     for (j = 0; j < 4; j = j+1) begin
-                        board[i][j] <= 0;
+                        board[i][j] <= 11'b00000000000;
                     end
                 end
 
-                board[0][0] <= 1;
+                board[0][0] <= 11'b00000000001;
             end
 
             WAIT:
@@ -61,10 +61,10 @@ begin
                     for (j = 0; j < 4; j = j+1) begin
                         if (board[i][j] == 0) begin
                             placeable = 1;
-                            board[i][j] <= 1;
+                            board[i][j] <= 11'b00000000001;
                             break;
                         end
-                        else if (board[i][j] == 1)
+                        else if (board[i][j] == 11'b10000000000)
                             found_11 = 1;
                     end
                     if (placeable || found_11)
