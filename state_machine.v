@@ -41,21 +41,40 @@ begin
                 end
 
                 board[0][0] <= 1;
-                board[1][0] <= 1;
             end
 
             WAIT:
             begin
-            //state transitions
-            if (up)
-                state <= UP;
-            else if (down)
-                state <= DOWN;
-            if (left)
-                state <= LEFT;
-            if (right)
-                state <= RIGHT;
-            //data transitions
+                //state transitions
+                if (up)
+                    state <= UP;
+                else if (down)
+                    state <= DOWN;
+                if (left)
+                    state <= LEFT;
+                if (right)
+                    state <= RIGHT;
+                //data transitions
+                integer placeable 0;
+                integer found_11 0;
+                for (i = 0; i < 4; i = i+1) begin
+                    for (j = 0; j < 4; j = j+1) begin
+                        if (board[i][j] == 0) begin
+                            placeable = 1;
+                            board[i][j] <= 1;
+                            break;
+                        end
+                        else if (board[i][j] == 1)
+                            found_11 = 1;
+                    end
+                    if (placeable || found_11)
+                        break;
+                end
+                
+                if (found_11)
+                    state <= WIN;
+                else if (!placeable)
+                    state <= LOSE;
 
             end
 
