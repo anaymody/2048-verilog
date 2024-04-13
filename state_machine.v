@@ -94,7 +94,8 @@ begin
             WIN:
             begin
             //state transitions
-
+            if (Reset)
+                state <= I;
             //data transitions
 
             end
@@ -102,7 +103,8 @@ begin
             LOSE:
             begin
             //state transitions
-
+            if (Reset)
+                state <= I;
             //data transitions
 
             end
