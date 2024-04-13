@@ -81,6 +81,14 @@ begin
             UP:
             begin
             //state transitions
+                state <= WAIT;
+
+            for (i = 1; i<4; i=i+1) begin
+                for (j = 0; j<4; j=j+1) begin
+                    if
+                end
+            end
+
 
             //data transitions
 
@@ -135,8 +143,3 @@ initial begin
     
 end
 
-task moveUp();
-begin
-    //dosmth
-
-end
