@@ -170,8 +170,76 @@ begin
             RIGHT:
             begin
             //state transitions
-
+            state <= WAIT;
             //data transitions
+            //col 2
+            for (i = 0; i<4; i=i+1) begin
+                if(board[i][0] == 11'b00000000000) begin
+                    board[i][0] = board[i][1];
+                    board[i][1] = 11'b00000000000;
+                end
+                else if (board[i][0] == board[i][1]) begin
+                    board[i][0] = board[i][0] << 1;
+                    board[i][1] = 11'b00000000000;
+                end
+            end
+
+           //row 3
+            for (i = 0; i<4; i=i+1) begin
+                if(board[i][1] == 11'b00000000000) begin
+                    board[i][1] = board[i][2];
+                    board[i][2] = 11'b00000000000;
+                end
+
+                else if (board[i][1] == board[i][2]) begin
+                    board[i][1] = board[i][1] << 1;
+                    board[i][2] = 11'b00000000000;
+                end
+
+                if(board[i][0] == 11'b00000000000) begin
+                    board[i][0] = board[i][1];
+                    board[i][1] = 11'b00000000000;
+                end
+
+                else if (board[i][0] == board[i][1]) begin
+                    board[i][0] = board[i][0] << 1;
+                    board[i][1] = 11'b00000000000;
+                end
+
+            end
+
+           //row 4
+            for (i = 0; i<4; i=i+1) begin
+                if(board[i][2] == 11'b00000000000) begin
+                    board[i][2] = board[i][3];
+                    board[i][3] = 11'b00000000000;
+                end
+
+                else if (board[i][2] == board[i][3]) begin
+                    board[i][2] = board[i][2] << 1;
+                    board[i][3] = 11'b00000000000;
+                end
+
+                if(board[i][1] == 11'b00000000000) begin
+                    board[i][1] = board[i][2];
+                    board[i][2] = 11'b00000000000;
+                end
+
+                else if (board[i][1] == board[i][2]) begin
+                    board[i][1] = board[i][1] << 1;
+                    board[i][2] = 11'b00000000000;
+                end
+
+                if(board[i][0] == 11'b00000000000) begin
+                    board[i][0] = board[i][1];
+                    board[i][1] = 11'b00000000000;
+                end
+
+                else if (board[i][0] == board[i][1]) begin
+                    board[i][0] = board[i][0] << 1;
+                    board[i][1] = 11'b00000000000;
+                end
+            end
 
             end
 
