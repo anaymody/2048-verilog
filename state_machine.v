@@ -21,6 +21,8 @@ reg[10:0] temp;
 integer i, j;
 integer placeable, found_11;
 
+reg exit_loop;
+
 always @ (posedge Clk, posedge Reset)
 begin
     if(Reset)
@@ -58,18 +60,18 @@ begin
                 //data transitions
                 placeable = 0;
                 found_11 = 0;
-                for (i = 0; i < 4; i = i+1) begin
-                    for (j = 0; j < 4; j = j+1) begin
+                exit_loop = 0;
+                for (i = 0; i < 4 && !exit_loop; i = i+1) begin
+                    for (j = 0; j < 4 && !exit_loop; j = j+1) begin
                         if (board[i][j] == 0) begin
                             placeable = 1;
                             board[i][j] <= 11'b00000000001;
-                            break;
+                            exit_loop = 1;
                         end
                         else if (board[i][j] == 11'b10000000000)
                             found_11 = 1;
+                            exit_loop = 1;
                     end
-                    if (placeable || found_11)
-                        break;
                 end
                 
                 if (found_11)
