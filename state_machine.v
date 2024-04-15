@@ -10,7 +10,7 @@ input up, down, left, right;
 //outputs
 output q_I, q_Wait, q_Up, q_Down, q_Right, q_Left, q_Win, q_Lose;
 reg[7:0] state;
-assign {q_I, q_Wait, q_Up, q_Down, q_Right, q_Left, q_Win, q_Lose} = state;
+assign {q_Lose, q_Win, q_Left, q_Right, q_Down, q_Up, q_Wait, q_I} = state;
 
 localparam
 I = 8'b00000001, WAIT = 8'b00000010, UP = 8'b00000100, DOWN = 8'b00001000, 
