@@ -5,7 +5,7 @@ module ee354_2048(Clk, Reset, q_I, q_Wait, q_Up, q_Down, q_Right, q_Left, q_Win,
 
 //inputs
 input Clk, Reset;
-input up, down, left, right
+input up, down, left, right;
 
 //outputs
 output q_I, q_Wait, q_Up, q_Down, q_Right, q_Left, q_Win, q_Lose;
@@ -19,6 +19,7 @@ RIGHT = 8'b00010000, LEFT = 8'b00100000, WIN = 8'b01000000, LOSE = 8'b10000000;
 reg[10:0] board [3:0][3:0];
 reg[10:0] temp;
 integer i, j;
+integer placeable, found_11;
 
 always @ (posedge Clk, posedge Reset)
 begin
@@ -55,8 +56,8 @@ begin
                 if (right)
                     state <= RIGHT;
                 //data transitions
-                integer placeable 0;
-                integer found_11 0;
+                placeable = 0;
+                found_11 = 0;
                 for (i = 0; i < 4; i = i+1) begin
                     for (j = 0; j < 4; j = j+1) begin
                         if (board[i][j] == 0) begin
