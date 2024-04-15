@@ -164,10 +164,78 @@ begin
             //state transitions
 
             //data transitions
+            //row 3
+            for (j = 0; j<4; j=j+1) begin
+                if(board[3][j] == 11'b00000000000) begin
+                    board[3][j] = board[2][j];
+                    board[2][j] = 11'b00000000000;
+                end
+                else if (board[0][j] == board[1][j]) begin
+                    board[3][j] = board[3][j] << 1;
+                    board[2][j] = 11'b00000000000;
+                end
+            end
+
+           //row 2
+            for (j = 0; j<4; j=j+1) begin
+                if(board[2][j] == 11'b00000000000) begin
+                    board[2][j] = board[1][j];
+                    board[1][j] = 11'b00000000000;
+                end
+
+                else if (board[2][j] == board[1][j]) begin
+                    board[2][j] = board[2][j] << 1;
+                    board[1][j] = 11'b00000000000;
+                end
+
+                if(board[3][j] == 11'b00000000000) begin
+                    board[3][j] = board[2][j];
+                    board[2][j] = 11'b00000000000;
+                end
+                else if (board[0][j] == board[1][j]) begin
+                    board[3][j] = board[3][j] << 1;
+                    board[2][j] = 11'b00000000000;
+                end
 
             end
 
-            RIGHT:
+           //row 1
+            for (j = 0; j<4; j=j+1) begin
+                if(board[1][j] == 11'b00000000000) begin
+                    board[1][j] = board[0][j];
+                    board[0][j] = 11'b00000000000;
+                end
+
+                else if (board[2][j] == board[3][j]) begin
+                    board[1][j] = board[1][j] << 1;
+                    board[0][j] = 11'b00000000000;
+                end
+
+                if(board[2][j] == 11'b00000000000) begin
+                    board[2][j] = board[1][j];
+                    board[1][j] = 11'b00000000000;
+                end
+
+                else if (board[2][j] == board[1][j]) begin
+                    board[2][j] = board[2][j] << 1;
+                    board[1][j] = 11'b00000000000;
+                end
+
+                if(board[3][j] == 11'b00000000000) begin
+                    board[3][j] = board[2][j];
+                    board[2][j] = 11'b00000000000;
+                end
+                else if (board[0][j] == board[1][j]) begin
+                    board[3][j] = board[3][j] << 1;
+                    board[2][j] = 11'b00000000000;
+                end
+               
+            end
+
+
+            end
+
+            LEFT:
             begin
             //state transitions
             state <= WAIT;
@@ -184,7 +252,7 @@ begin
                 end
             end
 
-           //row 3
+           //col 3
             for (i = 0; i<4; i=i+1) begin
                 if(board[i][1] == 11'b00000000000) begin
                     board[i][1] = board[i][2];
@@ -208,7 +276,7 @@ begin
 
             end
 
-           //row 4
+           //col 4
             for (i = 0; i<4; i=i+1) begin
                 if(board[i][2] == 11'b00000000000) begin
                     board[i][2] = board[i][3];
@@ -243,19 +311,84 @@ begin
 
             end
 
-            LEFT:
+            RIGHT:
             begin
             //state transitions
 
             //data transitions
+            //col 3
+            for (i = 0; i<4; i=i+1) begin
+                if(board[i][3] == 11'b00000000000) begin
+                    board[i][3] = board[i][2];
+                    board[i][2] = 11'b00000000000;
+                end
+                else if (board[i][3] == board[i][2]) begin
+                    board[i][3] = board[i][3] << 1;
+                    board[i][2] = 11'b00000000000;
+                end
+            end
+
+           //col 2
+            for (i = 0; i<4; i=i+1) begin
+                if(board[i][2] == 11'b00000000000) begin
+                    board[i][2] = board[i][1];
+                    board[i][1] = 11'b00000000000;
+                end
+
+                else if (board[i][2] == board[i][1]) begin
+                    board[i][2] = board[i][2] << 1;
+                    board[i][1] = 11'b00000000000;
+                end
+
+                if(board[i][3] == 11'b00000000000) begin
+                    board[i][3] = board[i][2];
+                    board[i][2] = 11'b00000000000;
+                end
+                else if (board[i][3] == board[i][2]) begin
+                    board[i][3] = board[i][3] << 1;
+                    board[i][2] = 11'b00000000000;
+                end
+
+            end
+
+           //col 1
+            for (i = 0; i<4; i=i+1) begin
+                if(board[i][1] == 11'b00000000000) begin
+                    board[i][1] = board[i][0];
+                    board[i][0] = 11'b00000000000;
+                end
+
+                else if (board[i][1] == board[i][0]) begin
+                    board[i][1] = board[i][1] << 1;
+                    board[i][0] = 11'b00000000000;
+                end
+
+                if(board[i][2] == 11'b00000000000) begin
+                    board[i][2] = board[i][1];
+                    board[i][1] = 11'b00000000000;
+                end
+
+                else if (board[i][2] == board[i][1]) begin
+                    board[i][2] = board[i][2] << 1;
+                    board[i][1] = 11'b00000000000;
+                end
+
+                if(board[i][3] == 11'b00000000000) begin
+                    board[i][3] = board[i][2];
+                    board[i][2] = 11'b00000000000;
+                end
+                else if (board[i][3] == board[i][2]) begin
+                    board[i][3] = board[i][3] << 1;
+                    board[i][2] = 11'b00000000000;
+                end
+            end
 
             end
 
             WIN:
             begin
             //state transitions
-            if (Reset)
-                state <= I;
+           
             //data transitions
 
             end
@@ -263,8 +396,7 @@ begin
             LOSE:
             begin
             //state transitions
-            if (Reset)
-                state <= I;
+           
             //data transitions
 
             end
@@ -272,7 +404,4 @@ begin
 
 end
 
-initial begin
-    
-end
 
