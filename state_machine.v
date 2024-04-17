@@ -21,7 +21,7 @@ reg[10:0] temp;
 integer i, j;
 integer placeable, found_11;
 
-reg exit_loop;
+reg enter_loop;
 
 always @ (posedge Clk, posedge Reset)
 begin
@@ -36,6 +36,7 @@ begin
             begin
             //state transitions
             state <= WAIT;
+            enter_loop <= 1;
             //data transitions
                 for (i = 0; i < 4; i = i+1) begin
                     for (j = 0; j < 4; j = j+1) begin
@@ -60,19 +61,24 @@ begin
                 //data transitions
                 placeable = 0;
                 found_11 = 0;
-                exit_loop = 0;
-                for (i = 0; i < 4 && !exit_loop; i = i+1) begin
-                    for (j = 0; j < 4 && !exit_loop; j = j+1) begin
+                
+    
+                for (i = 0; i < 4; i = i+1) begin
+                    for (j = 0; j < 4; j = j+1) begin
                         if (board[i][j] == 0) begin
                             placeable = 1;
-                            board[i][j] <= 11'b00000000001;
-                            exit_loop = 1;
+                            if (enter_loop == 1) begin
+                                board[i][j] <= 11'b00000000001;
+                                enter_loop = 0;
+                            end
                         end
                         else if (board[i][j] == 11'b10000000000)
                             found_11 = 1;
-                            exit_loop = 1;
+                            enter_loop = 0;
                     end
                 end
+                    
+                
                 
                 if (found_11)
                     state <= WIN;
@@ -85,7 +91,7 @@ begin
             begin
             //state transitions
                 state <= WAIT;
-
+                enter_loop <= 1;
 
             //data transitions
 
@@ -165,6 +171,8 @@ begin
             DOWN:
             begin
             //state transitions
+            state <= WAIT;
+            enter_loop <= 1;
 
             //data transitions
             //row 3
@@ -242,6 +250,7 @@ begin
             begin
             //state transitions
             state <= WAIT;
+            enter_loop <= 1;
             //data transitions
             //col 2
             for (i = 0; i<4; i=i+1) begin
@@ -317,7 +326,8 @@ begin
             RIGHT:
             begin
             //state transitions
-
+            state <= WAIT;
+            enter_loop <= 1;
             //data transitions
             //col 3
             for (i = 0; i<4; i=i+1) begin
