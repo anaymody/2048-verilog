@@ -72,9 +72,11 @@ begin
                                 enter_loop = 0;
                             end
                         end
-                        else if (board[i][j] == 11'b10000000000)
+                        else if (board[i][j] == 11'b10000000000) begin
                             found_11 = 1;
                             enter_loop = 0;
+                        end
+                            
                     end
                 end
                     
@@ -181,7 +183,7 @@ begin
                     board[3][j] = board[2][j];
                     board[2][j] = 11'b00000000000;
                 end
-                else if (board[0][j] == board[1][j]) begin
+                else if (board[3][j] == board[2][j]) begin
                     board[3][j] = board[3][j] << 1;
                     board[2][j] = 11'b00000000000;
                 end
@@ -203,7 +205,7 @@ begin
                     board[3][j] = board[2][j];
                     board[2][j] = 11'b00000000000;
                 end
-                else if (board[0][j] == board[1][j]) begin
+                else if (board[3][j] == board[2][j]) begin
                     board[3][j] = board[3][j] << 1;
                     board[2][j] = 11'b00000000000;
                 end
@@ -217,7 +219,7 @@ begin
                     board[0][j] = 11'b00000000000;
                 end
 
-                else if (board[2][j] == board[3][j]) begin
+                else if (board[1][j] == board[0][j]) begin
                     board[1][j] = board[1][j] << 1;
                     board[0][j] = 11'b00000000000;
                 end
@@ -236,7 +238,7 @@ begin
                     board[3][j] = board[2][j];
                     board[2][j] = 11'b00000000000;
                 end
-                else if (board[0][j] == board[1][j]) begin
+                else if (board[3][j] == board[2][j]) begin
                     board[3][j] = board[3][j] << 1;
                     board[2][j] = 11'b00000000000;
                 end
