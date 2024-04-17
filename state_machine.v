@@ -17,7 +17,6 @@ I = 8'b00000001, WAIT = 8'b00000010, UP = 8'b00000100, DOWN = 8'b00001000,
 RIGHT = 8'b00010000, LEFT = 8'b00100000, WIN = 8'b01000000, LOSE = 8'b10000000;
 
 reg[10:0] board [3:0][3:0];
-reg[10:0] temp;
 integer i, j;
 integer placeable, found_11;
 
@@ -67,6 +66,7 @@ begin
                     for (j = 0; j < 4; j = j+1) begin
                         if (board[i][j] == 0) begin
                             placeable = 1;
+                            //only place 1 if we have enter_loop from another state
                             if (enter_loop == 1) begin
                                 board[i][j] <= 11'b00000000001;
                                 enter_loop = 0;
