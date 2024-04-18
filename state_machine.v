@@ -29,9 +29,70 @@ integer placeable, found_11;
 
 reg enter_loop;
 
+task BLOCK_COLOR;
+    input i, j;
+    begin
+    if (board[i][j] == 11'b00000000001)
+        rgb = BLOCK2;
+    if (board[i][j] == 11'b00000000010)
+        rgb = BLOCK4;
+    if (board[i][j] == 11'b00000000100)
+        rgb = BLOCK8;
+    if (board[i][j] == 11'b00000001000)
+        rgb = BLOCK16;
+    if (board[i][j] == 11'b00000010000)
+        rgb = BLOCK32;
+    if (board[i][j] == 11'b00000100000)
+        rgb = BLOCK64;
+    if (board[i][j] == 11'b00001000000)
+        rgb = BLOCK128;
+    if (board[i][j] == 11'b00010000000)
+        rgb = BLOCK256;
+    if (board[i][j] == 11'b00100000000)
+        rgb = BLOCK512;
+    if (board[i][j] == 11'b01000000000)
+        rgb = BLOCK1024;
+    if (board[i][j] == 11'b10000000000)
+        rgb = BLOCK2048;
+    end
+endtask
+
+
 always @ (*) begin
     if (~bright)
         rgb = 12'b0000_0000_0000;
+    else if (pos1)
+        BLOCK_COLOR(0,0);
+    else if (pos2)
+        BLOCK_COLOR(0,1);
+    else if (pos3)
+        BLOCK_COLOR(0,2);
+    else if (pos4)
+        BLOCK_COLOR(0,3);
+    else if (pos5)
+        BLOCK_COLOR(1,0);
+    else if (pos6)
+        BLOCK_COLOR(1,1);
+    else if (pos7)
+        BLOCK_COLOR(1,2);
+    else if (pos8)
+        BLOCK_COLOR(1,3);
+    else if (pos9)
+        BLOCK_COLOR(2,0);
+    else if (pos10)
+        BLOCK_COLOR(2,1);
+    else if (pos11)
+        BLOCK_COLOR(2,2);
+    else if (pos12)
+        BLOCK_COLOR(2,3);
+    else if (pos13)
+        BLOCK_COLOR(3,0);
+    else if (pos14)
+        BLOCK_COLOR(3,1);
+    else if (pos15)
+        BLOCK_COLOR(3,2);
+    else if (pos16)
+        BLOCK_COLOR(3,3);
     else
         rgb=background;
 end
