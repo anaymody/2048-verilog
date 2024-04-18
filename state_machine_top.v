@@ -1,3 +1,5 @@
+`timescale 1ns / 1ps
+
 module ee354_2048_top
 		(
         input ClkPort,                           // the 100 MHz incoming clock signal

@@ -1,3 +1,4 @@
+`timescale 1ns / 1ps
 
 //module
 module ee354_2048(Clk, Reset, q_I, q_Wait, q_Up, q_Down, q_Right, q_Left, q_Win, q_Lose, up, down, left, right, hCount, vCount, rgb, background);
