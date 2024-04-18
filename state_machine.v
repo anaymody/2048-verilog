@@ -1,14 +1,19 @@
 
 //module
-module ee354_2048(Clk, Reset, q_I, q_Wait, q_Up, q_Down, q_Right, q_Left, q_Win, q_Lose, up, down, left, right);
+module ee354_2048(Clk, Reset, q_I, q_Wait, q_Up, q_Down, q_Right, q_Left, q_Win, q_Lose, up, down, left, right, hCount, vCount, rgb, background);
 
 
 //inputs
 input Clk, Reset;
 input up, down, left, right;
+input [9:0] hCount, vCount,
+	
 
 //outputs
 output q_I, q_Wait, q_Up, q_Down, q_Right, q_Left, q_Win, q_Lose;
+output reg [11:0] rgb,
+output reg [11:0] background
+
 reg[7:0] state;
 assign {q_Lose, q_Win, q_Left, q_Right, q_Down, q_Up, q_Wait, q_I} = state;
 
@@ -21,6 +26,7 @@ integer i, j;
 integer placeable, found_11;
 
 reg enter_loop;
+
 
 always @ (posedge Clk, posedge Reset)
 begin
@@ -37,6 +43,10 @@ begin
             state <= WAIT;
             enter_loop <= 1;
             //data transitions
+                background <= 12'b1111_1111_1111;
+
+
+
                 for (i = 0; i < 4; i = i+1) begin
                     for (j = 0; j < 4; j = j+1) begin
                         board[i][j] <= 11'b00000000000;
@@ -50,12 +60,16 @@ begin
             begin
                 //state transitions
                 if (up)
+                    background <= 12'b1111_0000_0000;
                     state <= UP;
                 else if (down)
                     state <= DOWN;
+                    background <= 12'b0000_1111_0000;
                 if (left)
+                    background <= 12'b0000_0000_1111;
                     state <= LEFT;
                 if (right)
+                    background <= 12'b0000_0000_0000;
                     state <= RIGHT;
                 //data transitions
                 placeable = 0;
