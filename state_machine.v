@@ -90,13 +90,13 @@ always @ (*) begin
     else if ( (vCount >= 230) && (vCount <= 250) && (hCount >= 455) && (hCount <= 475) )
         BLOCK_COLOR(2,3);
 
-    else if ( (vCount >= 255) && (vCount <= 255) && (hCount >= 380) && (hCount <= 400) )
+    else if ( (vCount >= 255) && (vCount <= 275) && (hCount >= 380) && (hCount <= 400) )
         BLOCK_COLOR(3,0);
-    else if ( (vCount >= 255) && (vCount <= 255) && (hCount >= 405) && (hCount <= 425) )
+    else if ( (vCount >= 255) && (vCount <= 275) && (hCount >= 405) && (hCount <= 425) )
         BLOCK_COLOR(3,1);
-    else if ( (vCount >= 255) && (vCount <= 255) && (hCount >= 430) && (hCount <= 450) )
+    else if ( (vCount >= 255) && (vCount <= 275) && (hCount >= 430) && (hCount <= 450) )
         BLOCK_COLOR(3,2);
-    else if ( (vCount >= 255) && (vCount <= 255) && (hCount >= 455) && (hCount <= 475) )
+    else if ( (vCount >= 255) && (vCount <= 275) && (hCount >= 455) && (hCount <= 475) )
         BLOCK_COLOR(3,3);
 
     else
