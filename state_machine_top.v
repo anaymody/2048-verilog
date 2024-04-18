@@ -13,7 +13,8 @@ module ee354_2048_top
 	  );
 
     wire Reset;
-    assign Reset=BtnC;
+    wire rst;
+    assign rst=BtnC;
     wire bright;
 	wire[9:0] hc, vc;
 	wire up,down,left,right;
@@ -23,9 +24,9 @@ module ee354_2048_top
 
 	
 	reg [27:0]	DIV_CLK;
-	always @ (posedge ClkPort, posedge Reset)  
+	always @ (posedge ClkPort, posedge rst)  
 	begin : CLOCK_DIVIDER
-      if (Reset)
+      if (rst)
 			DIV_CLK <= 0;
 	  else
 			DIV_CLK <= DIV_CLK + 1'b1;
