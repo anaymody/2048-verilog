@@ -33,6 +33,8 @@ begin
     if(Reset)
     begin
         state <= I;
+        background <= 12'b1111_1111_1111;
+
     end
 
     else
@@ -43,7 +45,6 @@ begin
             state <= WAIT;
             enter_loop <= 1;
             //data transitions
-                background <= 12'b1111_1111_1111;
 
 
 
@@ -60,16 +61,12 @@ begin
             begin
                 //state transitions
                 if (up)
-                    // background <= 12'b1111_0000_0000;
                     state <= UP;
                 else if (down)
                     state <= DOWN;
-                    // background <= 12'b0000_1111_0000;
-                if (left)
-                    // background <= 12'b0000_0000_1111;
+                else if (left)
                     state <= LEFT;
-                if (right)
-                    // background <= 12'b0000_0000_0000;
+                else if (right)
                     state <= RIGHT;
                 //data transitions
                 placeable = 0;
