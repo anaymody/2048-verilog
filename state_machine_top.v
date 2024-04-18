@@ -35,7 +35,7 @@ module ee354_2048_top
 			DIV_CLK <= DIV_CLK + 1'b1;
 	end
 	wire move_clk;
-	assign move_clk=DIV_CLK[19]; //slower clock to drive the movement of objects on the vga screen
+	assign move_clk=DIV_CLK[24]; //slower clock to drive the movement of objects on the vga screen
 	wire [11:0] background;
 	display_controller dc(.clk(ClkPort), .hSync(hSync), .vSync(vSync), .bright(bright), .hCount(hc), .vCount(vc));
 	ee354_2048 sc(.Clk(move_clk), .Reset(BtnC), .q_I(q_I), .q_Wait(q_Wait), .q_Up(q_Up), .q_Down(q_Down), .q_Right(q_Right), .q_Left(q_Left), .q_Win(q_Win), .q_Lose(q_Lose), .up(BtnU), .down(BtnD), .left(BtnL), .right(BtnR),

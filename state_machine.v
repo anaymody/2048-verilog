@@ -30,31 +30,31 @@ integer placeable, found_11;
 reg enter_loop;
 
 task BLOCK_COLOR;
-    input i, j;
+    input[1:0] k, l;
     begin
-    if (board[i][j] == 11'b00000000000)
+    if (board[k][l] == 11'b00000000000)
         rgb = 12'b0110_0110_0110;
-    if (board[i][j] == 11'b00000000001)
+    if (board[k][l] == 11'b00000000001)
         rgb = 12'b1110_1101_1100;
-    if (board[i][j] == 11'b00000000010)
+    if (board[k][l] == 11'b00000000010)
         rgb = 12'b1100_1001_1000;
-    if (board[i][j] == 11'b00000000100)
+    if (board[k][l] == 11'b00000000100)
         rgb = 12'b1101_1001_0101;
-    if (board[i][j] == 11'b00000001000)
+    if (board[k][l] == 11'b00000001000)
         rgb = 12'b1111_1000_0100;
-    if (board[i][j] == 11'b00000010000)
+    if (board[k][l] == 11'b00000010000)
         rgb = 12'b1111_0110_0101;
-    if (board[i][j] == 11'b00000100000)
+    if (board[k][l] == 11'b00000100000)
         rgb = 12'b1111_0011_0011;
-    if (board[i][j] == 11'b00001000000)
+    if (board[k][l] == 11'b00001000000)
         rgb = 12'b1110_1011_0100;
-    if (board[i][j] == 11'b00010000000)
+    if (board[k][l] == 11'b00010000000)
         rgb = 12'b1111_1011_0000;
-    if (board[i][j] == 11'b00100000000)
+    if (board[k][l] == 11'b00100000000)
         rgb = 12'b1000_1011_0101;
-    if (board[i][j] == 11'b01000000000)
+    if (board[k][l] == 11'b01000000000)
         rgb = 12'b0100_1010_1101;
-    if (board[i][j] == 11'b10000000000)
+    if (board[k][l] == 11'b10000000000)
         rgb = 12'b0001_0101_1101;
     end
 endtask
@@ -90,13 +90,13 @@ always @ (*) begin
     else if ( (vCount >= 230) && (vCount <= 250) && (hCount >= 455) && (hCount <= 475) )
         BLOCK_COLOR(2,3);
 
-    else if ( (vCount >= 255) && (vCount <= 255) && (hCount >= 380) && (hCount <= 400) )
+    else if ( (vCount >= 255) && (vCount <= 275) && (hCount >= 380) && (hCount <= 400) )
         BLOCK_COLOR(3,0);
-    else if ( (vCount >= 255) && (vCount <= 255) && (hCount >= 405) && (hCount <= 425) )
+    else if ( (vCount >= 255) && (vCount <= 275) && (hCount >= 405) && (hCount <= 425) )
         BLOCK_COLOR(3,1);
-    else if ( (vCount >= 255) && (vCount <= 255) && (hCount >= 430) && (hCount <= 450) )
+    else if ( (vCount >= 255) && (vCount <= 275) && (hCount >= 430) && (hCount <= 450) )
         BLOCK_COLOR(3,2);
-    else if ( (vCount >= 255) && (vCount <= 255) && (hCount >= 455) && (hCount <= 475) )
+    else if ( (vCount >= 255) && (vCount <= 275) && (hCount >= 455) && (hCount <= 475) )
         BLOCK_COLOR(3,3);
 
     else
