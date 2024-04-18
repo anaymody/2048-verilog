@@ -34,6 +34,7 @@ always @ (*) begin
         rgb = 12'b0000_0000_0000;
     else
         rgb=background;
+end
 
 always @ (posedge Clk, posedge Reset)
 begin
