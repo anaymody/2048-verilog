@@ -33,27 +33,27 @@ task BLOCK_COLOR;
     input i, j;
     begin
     if (board[i][j] == 11'b00000000001)
-        rgb = BLOCK2;
+        rgb = 12'b1110_1101_1100;
     if (board[i][j] == 11'b00000000010)
-        rgb = BLOCK4;
+        rgb = 12'b1100_1001_1000;
     if (board[i][j] == 11'b00000000100)
-        rgb = BLOCK8;
+        rgb = 12'b1101_1001_0101;
     if (board[i][j] == 11'b00000001000)
-        rgb = BLOCK16;
+        rgb = 12'b1111_1000_0100;
     if (board[i][j] == 11'b00000010000)
-        rgb = BLOCK32;
+        rgb = 12'b1111_0110_0101;
     if (board[i][j] == 11'b00000100000)
-        rgb = BLOCK64;
+        rgb = 12'b1111_0011_0011;
     if (board[i][j] == 11'b00001000000)
-        rgb = BLOCK128;
+        rgb = 12'b1110_1011_0100;
     if (board[i][j] == 11'b00010000000)
-        rgb = BLOCK256;
+        rgb = 12'b1111_1011_0000;
     if (board[i][j] == 11'b00100000000)
-        rgb = BLOCK512;
+        rgb = 12'b1000_1011_0101;
     if (board[i][j] == 11'b01000000000)
-        rgb = BLOCK1024;
+        rgb = 12'b0100_1010_1101;
     if (board[i][j] == 11'b10000000000)
-        rgb = BLOCK2048;
+        rgb = 12'b0001_0101_1101;
     end
 endtask
 
