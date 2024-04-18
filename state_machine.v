@@ -63,38 +63,42 @@ endtask
 always @ (*) begin
     if (~bright)
         rgb = 12'b0000_0000_0000;
-    else if (pos1)
+    else if ( (vCount >= 180) && (vCount <= 200) && (hCount >= 380) && (hCount <= 400) )
         BLOCK_COLOR(0,0);
-    else if (pos2)
+    else if ( (vCount >= 180) && (vCount <= 200) && (hCount >= 405) && (hCount <= 425) )
         BLOCK_COLOR(0,1);
-    else if (pos3)
+    else if ( (vCount >= 180) && (vCount <= 200) && (hCount >= 430) && (hCount <= 450) )
         BLOCK_COLOR(0,2);
-    else if (pos4)
+    else if ( (vCount >= 180) && (vCount <= 200) && (hCount >= 455) && (hCount <= 475) )
         BLOCK_COLOR(0,3);
-    else if (pos5)
+
+    else if ( (vCount >= 205) && (vCount <= 225) && (hCount >= 380) && (hCount <= 400) )
         BLOCK_COLOR(1,0);
-    else if (pos6)
+    else if ( (vCount >= 205) && (vCount <= 225) && (hCount >= 405) && (hCount <= 425) )
         BLOCK_COLOR(1,1);
-    else if (pos7)
+    else if ( (vCount >= 205) && (vCount <= 225) && (hCount >= 430) && (hCount <= 450) )
         BLOCK_COLOR(1,2);
-    else if (pos8)
+    else if ( (vCount >= 205) && (vCount <= 225) && (hCount >= 455) && (hCount <= 475) )
         BLOCK_COLOR(1,3);
-    else if (pos9)
+
+    else if ( (vCount >= 230) && (vCount <= 250) && (hCount >= 380) && (hCount <= 400) )
         BLOCK_COLOR(2,0);
-    else if (pos10)
+    else if ( (vCount >= 230) && (vCount <= 250) && (hCount >= 405) && (hCount <= 425) )
         BLOCK_COLOR(2,1);
-    else if (pos11)
+    else if ( (vCount >= 230) && (vCount <= 250) && (hCount >= 430) && (hCount <= 450) )
         BLOCK_COLOR(2,2);
-    else if (pos12)
+    else if ( (vCount >= 230) && (vCount <= 250) && (hCount >= 455) && (hCount <= 475) )
         BLOCK_COLOR(2,3);
-    else if (pos13)
+
+    else if ( (vCount >= 255) && (vCount <= 255) && (hCount >= 380) && (hCount <= 400) )
         BLOCK_COLOR(3,0);
-    else if (pos14)
+    else if ( (vCount >= 255) && (vCount <= 255) && (hCount >= 405) && (hCount <= 425) )
         BLOCK_COLOR(3,1);
-    else if (pos15)
+    else if ( (vCount >= 255) && (vCount <= 255) && (hCount >= 430) && (hCount <= 450) )
         BLOCK_COLOR(3,2);
-    else if (pos16)
+    else if ( (vCount >= 255) && (vCount <= 255) && (hCount >= 455) && (hCount <= 475) )
         BLOCK_COLOR(3,3);
+
     else
         rgb=background;
 end
