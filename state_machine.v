@@ -32,6 +32,8 @@ reg enter_loop;
 task BLOCK_COLOR;
     input i, j;
     begin
+    if (board[i][j] == 11'b00000000000)
+        rgb = 12'b0110_0110_0110;
     if (board[i][j] == 11'b00000000001)
         rgb = 12'b1110_1101_1100;
     if (board[i][j] == 11'b00000000010)
