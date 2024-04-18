@@ -1,13 +1,14 @@
 `timescale 1ns / 1ps
 
 //module
-module ee354_2048(Clk, Reset, q_I, q_Wait, q_Up, q_Down, q_Right, q_Left, q_Win, q_Lose, up, down, left, right, hCount, vCount, rgb, background);
+module ee354_2048(Clk, Reset, q_I, q_Wait, q_Up, q_Down, q_Right, q_Left, q_Win, q_Lose, up, down, left, right, hCount, vCount, rgb, background, bright);
 
 
 //inputs
 input Clk, Reset;
 input up, down, left, right;
 input [9:0] hCount, vCount;
+input bright;
 	
 
 //outputs
@@ -28,6 +29,11 @@ integer placeable, found_11;
 
 reg enter_loop;
 
+always @ (*) begin
+    if (~bright)
+        rgb = 12'b0000_0000_0000;
+    else
+        rgb=background;
 
 always @ (posedge Clk, posedge Reset)
 begin
