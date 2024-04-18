@@ -6,13 +6,13 @@ module ee354_2048(Clk, Reset, q_I, q_Wait, q_Up, q_Down, q_Right, q_Left, q_Win,
 //inputs
 input Clk, Reset;
 input up, down, left, right;
-input [9:0] hCount, vCount,
+input [9:0] hCount, vCount;
 	
 
 //outputs
 output q_I, q_Wait, q_Up, q_Down, q_Right, q_Left, q_Win, q_Lose;
-output reg [11:0] rgb,
-output reg [11:0] background
+output reg [11:0] rgb;
+output reg [11:0] background;
 
 reg[7:0] state;
 assign {q_Lose, q_Win, q_Left, q_Right, q_Down, q_Up, q_Wait, q_I} = state;
@@ -60,16 +60,16 @@ begin
             begin
                 //state transitions
                 if (up)
-                    background <= 12'b1111_0000_0000;
+                    // background <= 12'b1111_0000_0000;
                     state <= UP;
                 else if (down)
                     state <= DOWN;
-                    background <= 12'b0000_1111_0000;
+                    // background <= 12'b0000_1111_0000;
                 if (left)
-                    background <= 12'b0000_0000_1111;
+                    // background <= 12'b0000_0000_1111;
                     state <= LEFT;
                 if (right)
-                    background <= 12'b0000_0000_0000;
+                    // background <= 12'b0000_0000_0000;
                     state <= RIGHT;
                 //data transitions
                 placeable = 0;

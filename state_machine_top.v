@@ -7,7 +7,7 @@ module ee354_GCD_top
         input BtnD, 
         input BtnR,            // the Left, Up, Down, and the Right buttons BtnL, BtnR,
 		input BtnC,                              // the center button (this is our reset in most of our designs)
-		output hSync, vSync
+		output hSync, vSync,
         output [3:0] vgaR, vgaG, vgaB,
         output QuadSpiFlashCS // Disable the three memory chips
 	  );
