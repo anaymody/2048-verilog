@@ -67,40 +67,40 @@ always @ (*) begin
         rgb = 12'b0000_0000_0000;
 
     //all blocks on board
-    else if ( (vCount >= 180) && (vCount <= 200) && (hCount >= 380) && (hCount <= 400) )
+    else if ( (vCount >= 180) && (vCount <= 220) && (hCount >= 380) && (hCount <= 420) )
         BLOCK_COLOR(0,0);
-    else if ( (vCount >= 180) && (vCount <= 200) && (hCount >= 405) && (hCount <= 425) )
+    else if ( (vCount >= 180) && (vCount <= 220) && (hCount >= 425) && (hCount <= 465) )
         BLOCK_COLOR(0,1);
-    else if ( (vCount >= 180) && (vCount <= 200) && (hCount >= 430) && (hCount <= 450) )
+    else if ( (vCount >= 180) && (vCount <= 220) && (hCount >= 470) && (hCount <= 510) )
         BLOCK_COLOR(0,2);
-    else if ( (vCount >= 180) && (vCount <= 200) && (hCount >= 455) && (hCount <= 475) )
+    else if ( (vCount >= 180) && (vCount <= 220) && (hCount >= 515) && (hCount <= 565) )
         BLOCK_COLOR(0,3);
 
-    else if ( (vCount >= 205) && (vCount <= 225) && (hCount >= 380) && (hCount <= 400) )
+    else if ( (vCount >= 225) && (vCount <= 265) && (hCount >= 380) && (hCount <= 420) )
         BLOCK_COLOR(1,0);
-    else if ( (vCount >= 205) && (vCount <= 225) && (hCount >= 405) && (hCount <= 425) )
+    else if ( (vCount >= 225) && (vCount <= 265) && (hCount >= 425) && (hCount <= 465) )
         BLOCK_COLOR(1,1);
-    else if ( (vCount >= 205) && (vCount <= 225) && (hCount >= 430) && (hCount <= 450) )
+    else if ( (vCount >= 225) && (vCount <= 265) && (hCount >= 470) && (hCount <= 510) )
         BLOCK_COLOR(1,2);
-    else if ( (vCount >= 205) && (vCount <= 225) && (hCount >= 455) && (hCount <= 475) )
+    else if ( (vCount >= 225) && (vCount <= 265) && (hCount >= 515) && (hCount <= 565) )
         BLOCK_COLOR(1,3);
 
-    else if ( (vCount >= 230) && (vCount <= 250) && (hCount >= 380) && (hCount <= 400) )
+    else if ( (vCount >= 270) && (vCount <= 310) && (hCount >= 380) && (hCount <= 420) )
         BLOCK_COLOR(2,0);
-    else if ( (vCount >= 230) && (vCount <= 250) && (hCount >= 405) && (hCount <= 425) )
+    else if ( (vCount >= 270) && (vCount <= 310) && (hCount >= 425) && (hCount <= 465) )
         BLOCK_COLOR(2,1);
-    else if ( (vCount >= 230) && (vCount <= 250) && (hCount >= 430) && (hCount <= 450) )
+    else if ( (vCount >= 270) && (vCount <= 310) && (hCount >= 470) && (hCount <= 510) )
         BLOCK_COLOR(2,2);
-    else if ( (vCount >= 230) && (vCount <= 250) && (hCount >= 455) && (hCount <= 475) )
+    else if ( (vCount >= 270) && (vCount <= 310) && (hCount >= 515) && (hCount <= 565) )
         BLOCK_COLOR(2,3);
 
-    else if ( (vCount >= 255) && (vCount <= 275) && (hCount >= 380) && (hCount <= 400) )
+    else if ( (vCount >= 315) && (vCount <= 355) && (hCount >= 380) && (hCount <= 420) )
         BLOCK_COLOR(3,0);
-    else if ( (vCount >= 255) && (vCount <= 275) && (hCount >= 405) && (hCount <= 425) )
+    else if ( (vCount >= 315) && (vCount <= 355) && (hCount >= 425) && (hCount <= 465) )
         BLOCK_COLOR(3,1);
-    else if ( (vCount >= 255) && (vCount <= 275) && (hCount >= 430) && (hCount <= 450) )
+    else if ( (vCount >= 315) && (vCount <= 355) && (hCount >= 470) && (hCount <= 510) )
         BLOCK_COLOR(3,2);
-    else if ( (vCount >= 255) && (vCount <= 275) && (hCount >= 455) && (hCount <= 475) )
+    else if ( (vCount >= 315) && (vCount <= 355) && (hCount >= 515) && (hCount <= 565) )
         BLOCK_COLOR(3,3);
 
     else
