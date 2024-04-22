@@ -67,27 +67,27 @@ always @ (*) begin
         rgb = 12'b0000_0000_0000;
 
     // key at the top
-    else if ( (vCount >= 20) && (vCount <= 60) && (hCount >= 130) && (hCount <= 170) )
+    else if ( (vCount >= 40) && (vCount <= 80) && (hCount >= 180) && (hCount <= 220) )
         rgb = 12'b1110_1101_1100;   // 2
-    else if ( (vCount >= 20) && (vCount <= 60) && (hCount >= 180) && (hCount <= 220) )
+    else if ( (vCount >= 40) && (vCount <= 80) && (hCount >= 230) && (hCount <= 270) )
         rgb = 12'b1100_1001_1000;   // 4
-    else if ( (vCount >= 20) && (vCount <= 60) && (hCount >= 230) && (hCount <= 270) )
+    else if ( (vCount >= 40) && (vCount <= 80) && (hCount >= 280) && (hCount <= 320) )
         rgb = 12'b1101_1001_0101;   // 8
-    else if ( (vCount >= 20) && (vCount <= 60) && (hCount >= 280) && (hCount <= 320) )
+    else if ( (vCount >= 40) && (vCount <= 80) && (hCount >= 330) && (hCount <= 370) )
         rgb = 12'b1111_1000_0100;   // 16
-    else if ( (vCount >= 20) && (vCount <= 60) && (hCount >= 330) && (hCount <= 370) )
+    else if ( (vCount >= 40) && (vCount <= 80) && (hCount >= 380) && (hCount <= 420) )
         rgb = 12'b1111_0110_0101;   // 32
-    else if ( (vCount >= 20) && (vCount <= 60) && (hCount >= 380) && (hCount <= 420) )
+    else if ( (vCount >= 40) && (vCount <= 80) && (hCount >= 430) && (hCount <= 470) )
         rgb = 12'b1111_0011_0011;   // 64
-    else if ( (vCount >= 20) && (vCount <= 60) && (hCount >= 430) && (hCount <= 470) )
+    else if ( (vCount >= 40) && (vCount <= 80) && (hCount >= 480) && (hCount <= 520) )
         rgb = 12'b1110_1011_0100;   // 128
-    else if ( (vCount >= 20) && (vCount <= 60) && (hCount >= 480) && (hCount <= 520) )
+    else if ( (vCount >= 40) && (vCount <= 80) && (hCount >= 530) && (hCount <= 570) )
         rgb = 12'b1111_1011_0000;   // 256
-    else if ( (vCount >= 20) && (vCount <= 60) && (hCount >= 530) && (hCount <= 570) )
+    else if ( (vCount >= 40) && (vCount <= 80) && (hCount >= 580) && (hCount <= 620) )
         rgb = 12'b1000_1011_0101;   // 512
-    else if ( (vCount >= 20) && (vCount <= 60) && (hCount >= 580) && (hCount <= 620) )
+    else if ( (vCount >= 40) && (vCount <= 80) && (hCount >= 630) && (hCount <= 670) )
         rgb = 12'b0100_1010_1101;   // 1024
-    else if ( (vCount >= 20) && (vCount <= 60) && (hCount >= 630) && (hCount <= 670) )
+    else if ( (vCount >= 40) && (vCount <= 80) && (hCount >= 680) && (hCount <= 720) )
         rgb = 12'b0001_0101_1101;   // 2048
 
     //all blocks on board
