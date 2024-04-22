@@ -27,8 +27,10 @@ reg[10:0] board [3:0][3:0];
 integer i, j;
 integer placeable, found_11;
 
+//used to check if we should place a new '2'
 reg enter_loop;
 
+//select block color depending on value of number block
 task BLOCK_COLOR;
     input[1:0] k, l;
     begin
@@ -59,10 +61,12 @@ task BLOCK_COLOR;
     end
 endtask
 
-
+//sets rgb to paint screen via VGA
 always @ (*) begin
     if (~bright)
         rgb = 12'b0000_0000_0000;
+
+    //all blocks on board
     else if ( (vCount >= 180) && (vCount <= 200) && (hCount >= 380) && (hCount <= 400) )
         BLOCK_COLOR(0,0);
     else if ( (vCount >= 180) && (vCount <= 200) && (hCount >= 405) && (hCount <= 425) )
@@ -488,17 +492,15 @@ begin
 
             WIN:
             begin
-            //state transitions
+                background <= 12'b0000_1000_0000;
            
-            //data transitions
+            
 
             end
 
             LOSE:
             begin
-            //state transitions
-           
-            //data transitions
+                background <= 12'b1000_0000_0000;
 
             end
         endcase
