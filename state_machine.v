@@ -34,29 +34,29 @@ reg enter_loop;
 task BLOCK_COLOR;
     input[1:0] k, l;
     begin
-    if (board[k][l] == 11'b00000000000)
+    if (board[k][l] == 11'b00000000000) // blank
         rgb = 12'b0110_0110_0110;
-    if (board[k][l] == 11'b00000000001)
+    if (board[k][l] == 11'b00000000001) // 2
         rgb = 12'b1110_1101_1100;
-    if (board[k][l] == 11'b00000000010)
+    if (board[k][l] == 11'b00000000010) // 4
         rgb = 12'b1100_1001_1000;
-    if (board[k][l] == 11'b00000000100)
+    if (board[k][l] == 11'b00000000100) // 8
         rgb = 12'b1101_1001_0101;
-    if (board[k][l] == 11'b00000001000)
+    if (board[k][l] == 11'b00000001000) // 16
         rgb = 12'b1111_1000_0100;
-    if (board[k][l] == 11'b00000010000)
+    if (board[k][l] == 11'b00000010000) // 32
         rgb = 12'b1111_0110_0101;
-    if (board[k][l] == 11'b00000100000)
+    if (board[k][l] == 11'b00000100000) // 64
         rgb = 12'b1111_0011_0011;
-    if (board[k][l] == 11'b00001000000)
+    if (board[k][l] == 11'b00001000000) // 128
         rgb = 12'b1110_1011_0100;
-    if (board[k][l] == 11'b00010000000)
+    if (board[k][l] == 11'b00010000000) // 256
         rgb = 12'b1111_1011_0000;
-    if (board[k][l] == 11'b00100000000)
+    if (board[k][l] == 11'b00100000000) // 512
         rgb = 12'b1000_1011_0101;
-    if (board[k][l] == 11'b01000000000)
+    if (board[k][l] == 11'b01000000000) // 1024
         rgb = 12'b0100_1010_1101;
-    if (board[k][l] == 11'b10000000000)
+    if (board[k][l] == 11'b10000000000) // 2048
         rgb = 12'b0001_0101_1101;
     end
 endtask
@@ -66,6 +66,30 @@ always @ (*) begin
     if (~bright)
         rgb = 12'b0000_0000_0000;
 
+    // key at the top
+    else if ( (vCount >= 20) && (vCount <= 60) && (hCount >= 130) && (hCount <= 170) )
+        rgb = 12'b1110_1101_1100;   // 2
+    else if ( (vCount >= 20) && (vCount <= 60) && (hCount >= 180) && (hCount <= 220) )
+        rgb = 12'b1100_1001_1000;   // 4
+    else if ( (vCount >= 20) && (vCount <= 60) && (hCount >= 230) && (hCount <= 270) )
+        rgb = 12'b1101_1001_0101;   // 8
+    else if ( (vCount >= 20) && (vCount <= 60) && (hCount >= 280) && (hCount <= 320) )
+        rgb = 12'b1111_1000_0100;   // 16
+    else if ( (vCount >= 20) && (vCount <= 60) && (hCount >= 330) && (hCount <= 370) )
+        rgb = 12'b1111_0110_0101;   // 32
+    else if ( (vCount >= 20) && (vCount <= 60) && (hCount >= 380) && (hCount <= 420) )
+        rgb = 12'b1111_0011_0011;   // 64
+    else if ( (vCount >= 20) && (vCount <= 60) && (hCount >= 430) && (hCount <= 470) )
+        rgb = 12'b1110_1011_0100;   // 128
+    else if ( (vCount >= 20) && (vCount <= 60) && (hCount >= 480) && (hCount <= 520) )
+        rgb = 12'b1111_1011_0000;   // 256
+    else if ( (vCount >= 20) && (vCount <= 60) && (hCount >= 530) && (hCount <= 570) )
+        rgb = 12'b1000_1011_0101;   // 512
+    else if ( (vCount >= 20) && (vCount <= 60) && (hCount >= 580) && (hCount <= 620) )
+        rgb = 12'b0100_1010_1101;   // 1024
+    else if ( (vCount >= 20) && (vCount <= 60) && (hCount >= 630) && (hCount <= 670) )
+        rgb = 12'b0001_0101_1101;   // 2048
+
     //all blocks on board
     else if ( (vCount >= 180) && (vCount <= 220) && (hCount >= 380) && (hCount <= 420) )
         BLOCK_COLOR(0,0);
@@ -73,7 +97,7 @@ always @ (*) begin
         BLOCK_COLOR(0,1);
     else if ( (vCount >= 180) && (vCount <= 220) && (hCount >= 470) && (hCount <= 510) )
         BLOCK_COLOR(0,2);
-    else if ( (vCount >= 180) && (vCount <= 220) && (hCount >= 515) && (hCount <= 565) )
+    else if ( (vCount >= 180) && (vCount <= 220) && (hCount >= 515) && (hCount <= 555) )
         BLOCK_COLOR(0,3);
 
     else if ( (vCount >= 225) && (vCount <= 265) && (hCount >= 380) && (hCount <= 420) )
@@ -82,7 +106,7 @@ always @ (*) begin
         BLOCK_COLOR(1,1);
     else if ( (vCount >= 225) && (vCount <= 265) && (hCount >= 470) && (hCount <= 510) )
         BLOCK_COLOR(1,2);
-    else if ( (vCount >= 225) && (vCount <= 265) && (hCount >= 515) && (hCount <= 565) )
+    else if ( (vCount >= 225) && (vCount <= 265) && (hCount >= 515) && (hCount <= 555) )
         BLOCK_COLOR(1,3);
 
     else if ( (vCount >= 270) && (vCount <= 310) && (hCount >= 380) && (hCount <= 420) )
@@ -91,7 +115,7 @@ always @ (*) begin
         BLOCK_COLOR(2,1);
     else if ( (vCount >= 270) && (vCount <= 310) && (hCount >= 470) && (hCount <= 510) )
         BLOCK_COLOR(2,2);
-    else if ( (vCount >= 270) && (vCount <= 310) && (hCount >= 515) && (hCount <= 565) )
+    else if ( (vCount >= 270) && (vCount <= 310) && (hCount >= 515) && (hCount <= 555) )
         BLOCK_COLOR(2,3);
 
     else if ( (vCount >= 315) && (vCount <= 355) && (hCount >= 380) && (hCount <= 420) )
@@ -100,7 +124,7 @@ always @ (*) begin
         BLOCK_COLOR(3,1);
     else if ( (vCount >= 315) && (vCount <= 355) && (hCount >= 470) && (hCount <= 510) )
         BLOCK_COLOR(3,2);
-    else if ( (vCount >= 315) && (vCount <= 355) && (hCount >= 515) && (hCount <= 565) )
+    else if ( (vCount >= 315) && (vCount <= 355) && (hCount >= 515) && (hCount <= 555) )
         BLOCK_COLOR(3,3);
 
     else
